@@ -1,4 +1,4 @@
-package com.adailsonsantos.domain;
+package com.adailsonsantos.cursomc.domain;
 
 import java.io.Serializable;
 
@@ -19,7 +19,7 @@ public class Categoria implements Serializable {
 	
 	public Categoria() {
 	}
-
+	
 	public Categoria(Integer id, String nome) {
 		super();
 		this.id = id;
