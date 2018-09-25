@@ -1,5 +1,6 @@
 package com.adailsonsantos.cursomc.services;
 
+import com.adailsonsantos.cursomc.resources.CategoriaResource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,5 +21,10 @@ public class CategoriaService {
 					+ ", Tipo: " + Categoria.class.getName());
 		}
 		return obj;
+	}
+
+	public Categoria insert(Categoria obj) {
+		obj.setId(null);
+		return repo.save(obj);
 	}
 }
