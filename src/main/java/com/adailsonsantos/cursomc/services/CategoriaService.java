@@ -10,6 +10,8 @@ import com.adailsonsantos.cursomc.domain.Categoria;
 import com.adailsonsantos.cursomc.repositories.CategoriaRepository;
 import com.adailsonsantos.cursomc.services.exceptions.ObjectNotFoundException;
 
+import java.util.List;
+
 @Service
 public class CategoriaService {
 
@@ -44,4 +46,8 @@ public class CategoriaService {
 			throw new DataIntegrityException("Não é possível excluir uma categoria que possui produtos.");
         }
     }
+
+	public List<Categoria> findAll() {
+		return repo.findAll();
+	}
 }
