@@ -1,5 +1,6 @@
 package com.adailsonsantos.cursomc.services;
 
+import com.adailsonsantos.cursomc.domain.Cliente;
 import com.adailsonsantos.cursomc.dto.CategoriaDTO;
 import com.adailsonsantos.cursomc.resources.CategoriaResource;
 import com.adailsonsantos.cursomc.services.exceptions.DataIntegrityException;
@@ -37,11 +38,12 @@ public class CategoriaService {
 	}
 
 	public Categoria update(Categoria obj){
-	    find(obj.getId());
-	    return repo.save(obj);
-    }
+		Categoria newObj = find(obj.getId());
+		updateData(newObj, obj);
+		return repo.save(newObj);
+	}
 
-    public void delete(Integer id){
+	public void delete(Integer id){
 	    find(id);
 	    try{
 	        repo.delete(id);
@@ -63,4 +65,8 @@ public class CategoriaService {
     public Categoria fromDTO(CategoriaDTO objDTO){
 	    return new Categoria(objDTO.getId(), objDTO.getNome());
     }
+
+	private void updateData(Categoria newObj, Categoria obj) {
+		newObj.setNome(obj.getNome());
+	}
 }
